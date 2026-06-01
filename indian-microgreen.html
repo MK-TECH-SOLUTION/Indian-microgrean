@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Microgreen – Tiny Greens, Big Benefits 🌱</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1A7F3D;
+    --dark: #0B4F1E;
+    --cream: #F5F3E7;
+    --gold: #D4AF37;
+    --gold-light: #F0D060;
+    --white: #ffffff;
+    --text: #1a1a1a;
+    --muted: #5a6e5b;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(11, 79, 30, 0.96);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 5%;
+    border-bottom: 1px solid rgba(212,175,55,0.25);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--green), var(--gold));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .logo-text { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 1.1rem; font-weight: 700; line-height: 1.1; }
+  .logo-sub { color: var(--gold); font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-links a { color: rgba(245,243,231,0.8); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-wa {
+    background: #25D366; color: white; padding: 9px 18px;
+    border-radius: 50px; font-size: 0.82rem; font-weight: 600;
+    text-decoration: none; display: flex; align-items: center; gap: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-wa:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+  .hamburger span { width: 22px; height: 2px; background: var(--cream); border-radius: 2px; transition: 0.3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0B4F1E 0%, #1A7F3D 45%, #0d6b30 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(245,243,231,0.05) 0%, transparent 40%),
+      radial-gradient(circle at 60% 80%, rgba(26,127,61,0.3) 0%, transparent 50%);
+  }
+  .hero-leaves {
+    position: absolute; font-size: clamp(60px, 12vw, 160px);
+    opacity: 0.06; line-height: 1; pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+  }
+  .hero-leaves:nth-child(1) { top: 10%; right: 5%; animation-delay: 0s; }
+  .hero-leaves:nth-child(2) { bottom: 15%; left: 2%; animation-delay: 3s; font-size: 80px; }
+  .hero-leaves:nth-child(3) { top: 60%; right: 15%; animation-delay: 5s; font-size: 100px; }
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-20px) rotate(5deg)} }
+
+  .hero-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center; max-width: 1200px; margin: 0 auto; width: 100%;
+    position: relative; z-index: 2;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4);
+    color: var(--gold-light); padding: 6px 16px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 20px; animation: fadeUp 0.6s ease both;
+  }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: var(--cream); line-height: 1.15; font-weight: 900;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-sub {
+    color: rgba(245,243,231,0.8); font-size: 1rem; line-height: 1.7;
+    margin: 16px 0 32px; max-width: 500px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-ctas {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-wa {
+    background: #25D366; color: white; padding: 14px 28px;
+    border-radius: 50px; font-weight: 700; font-size: 0.95rem;
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+    transition: all 0.3s; box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  }
+  .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+  .btn-outline {
+    border: 2px solid rgba(212,175,55,0.6); color: var(--gold-light);
+    padding: 13px 26px; border-radius: 50px; font-weight: 600;
+    font-size: 0.95rem; text-decoration: none;
+    transition: all 0.3s; background: transparent;
+  }
+  .btn-outline:hover { background: rgba(212,175,55,0.1); border-color: var(--gold); }
+
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 40px;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif; font-size: 1.8rem;
+    color: var(--gold-light); font-weight: 700; line-height: 1;
+  }
+  .stat-label { color: rgba(245,243,231,0.6); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+  .hero-visual {
+    position: relative; display: flex; align-items: center; justify-content: center;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-img-container {
+    position: relative; width: 100%; max-width: 480px;
+  }
+  .hero-main-card {
+    background: rgba(245,243,231,0.08);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 24px; padding: 24px;
+    backdrop-filter: blur(10px);
+  }
+  .hero-img-placeholder {
+    width: 100%; aspect-ratio: 4/3;
+    background: linear-gradient(135deg, rgba(26,127,61,0.4), rgba(212,175,55,0.2));
+    border-radius: 16px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 80px; position: relative;
+  }
+  .hero-img-placeholder::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(11,79,30,0.6));
+  }
+  .product-tabs-mini {
+    display: flex; gap: 8px; margin-top: 16px; justify-content: center;
+  }
+  .ptab {
+    background: rgba(245,243,231,0.1); border: 1px solid rgba(212,175,55,0.2);
+    color: rgba(245,243,231,0.7); padding: 6px 14px; border-radius: 50px;
+    font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .ptab.active, .ptab:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+
+  .floating-badge {
+    position: absolute; background: white; border-radius: 16px;
+    padding: 10px 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600;
+  }
+  .fb1 { top: -16px; right: -16px; color: var(--dark); }
+  .fb2 { bottom: -10px; left: -16px; color: var(--dark); }
+  .fb-icon { font-size: 1.4rem; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--dark); padding: 14px 5%;
+    display: flex; align-items: center; justify-content: center;
+    gap: clamp(20px, 4vw, 60px); flex-wrap: wrap;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    color: rgba(245,243,231,0.7); font-size: 0.8rem; font-weight: 500;
+  }
+  .trust-dot { color: var(--gold); font-size: 1.1rem; }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 80px 5%; }
+  .section-tag {
+    display: inline-block; background: rgba(26,127,61,0.1); color: var(--green);
+    padding: 5px 14px; border-radius: 50px; font-size: 0.72rem;
+    font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    border: 1px solid rgba(26,127,61,0.2); margin-bottom: 12px;
+  }
+  .section-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--dark); font-weight: 900; line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .section-h2 em { color: var(--green); font-style: italic; }
+  .section-sub { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 560px; }
+  .text-center { text-align: center; }
+  .text-center .section-sub { margin: 0 auto; }
+
+  /* ── SUBSCRIPTION ── */
+  #subscription { background: var(--dark); position: relative; overflow: hidden; }
+  #subscription::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(212,175,55,0.08) 0%, transparent 60%);
+  }
+  .sub-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .sub-card {
+    background: linear-gradient(135deg, rgba(26,127,61,0.3) 0%, rgba(212,175,55,0.1) 100%);
+    border: 2px solid rgba(212,175,55,0.4); border-radius: 32px; padding: 50px;
+    position: relative; overflow: hidden;
+  }
+  .sub-card::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .sub-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; flex-wrap: wrap; margin-bottom: 40px; }
+  .sub-price-badge {
+    background: var(--gold); color: var(--dark); padding: 20px 30px;
+    border-radius: 20px; text-align: center; flex-shrink: 0;
+    box-shadow: 0 8px 30px rgba(212,175,55,0.4);
+  }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; line-height: 1; }
+  .price-per { font-size: 0.8rem; font-weight: 600; opacity: 0.7; }
+  .sub-title { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 1.8rem; font-weight: 700; line-height: 1.2; }
+  .sub-desc { color: rgba(245,243,231,0.7); margin-top: 8px; line-height: 1.6; }
+  .weekly-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+  .week-card {
+    background: rgba(245,243,231,0.06); border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 16px; padding: 16px; text-align: center;
+  }
+  .week-num { color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .week-emoji { font-size: 1.8rem; margin-bottom: 8px; }
+  .week-name { color: var(--cream); font-size: 0.82rem; font-weight: 600; }
+  .week-benefit { color: rgba(245,243,231,0.5); font-size: 0.7rem; margin-top: 4px; }
+  .sub-benefits { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+  .sub-benefit-chip {
+    background: rgba(26,127,61,0.25); border: 1px solid rgba(26,127,61,0.4);
+    color: #7ee8a2; padding: 6px 14px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 600; display: flex; align-items: center; gap: 6px;
+  }
+  .sub-cta {
+    background: linear-gradient(135deg, var(--gold), #b8941f);
+    color: var(--dark); padding: 16px 36px; border-radius: 50px;
+    font-weight: 800; font-size: 1rem; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+    box-shadow: 0 6px 25px rgba(212,175,55,0.4);
+    transition: all 0.3s;
+  }
+  .sub-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(212,175,55,0.55); }
+
+  /* ── PRODUCTS ── */
+  #products { background: var(--cream); }
+  .prod-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 32px 0 40px; }
+  .prod-tab {
+    padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 0.88rem;
+    cursor: pointer; transition: all 0.2s; border: 2px solid transparent;
+    background: white; color: var(--muted); box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .prod-tab.active { background: var(--green); color: white; }
+  .prod-tab:hover:not(.active) { border-color: var(--green); color: var(--green); }
+
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; }
+  .product-card {
+    background: white; border-radius: 24px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+  .product-img {
+    width: 100%; aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 56px; background: linear-gradient(135deg, #e8f5ec, #f0faf2);
+    position: relative; overflow: hidden;
+  }
+  .product-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(245,243,231,0.3));
+  }
+  .product-body { padding: 18px; }
+  .product-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+  .product-benefits { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
+  .benefit-row { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--muted); }
+  .benefit-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+  .product-order-btn {
+    width: 100%; background: var(--green); color: white;
+    padding: 11px; border-radius: 50px; border: none; cursor: pointer;
+    font-weight: 700; font-size: 0.85rem; display: flex; align-items: center;
+    justify-content: center; gap: 6px; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .product-order-btn:hover { background: var(--dark); transform: scale(1.02); }
+
+  /* ── WHY US ── */
+  #why { background: white; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; margin-top: 48px; }
+  .why-card {
+    text-align: center; padding: 32px 20px;
+    background: var(--cream); border-radius: 24px;
+    border: 1px solid rgba(26,127,61,0.1);
+    transition: all 0.3s;
+  }
+  .why-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(26,127,61,0.12); border-color: var(--green); }
+  .why-icon { font-size: 2.4rem; margin-bottom: 14px; }
+  .why-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .why-desc { color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: var(--cream); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; position: relative; }
+  .steps::before {
+    content: ''; position: absolute; top: 40px; left: 16.6%; right: 16.6%;
+    height: 2px; background: linear-gradient(to right, var(--green), var(--gold), var(--green));
+    z-index: 0;
+  }
+  .step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+  .step-circle {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green), var(--dark));
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-size: 2rem; box-shadow: 0 8px 25px rgba(26,127,61,0.35);
+    border: 3px solid var(--cream);
+  }
+  .step-num {
+    position: absolute; top: -8px; right: -8px;
+    width: 24px; height: 24px; background: var(--gold);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 800; color: var(--dark);
+  }
+  .step-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .step-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--dark); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-top: 48px; }
+  .testi-card {
+    background: rgba(245,243,231,0.06); border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 24px; padding: 32px;
+    transition: border-color 0.3s;
+  }
+  .testi-card:hover { border-color: rgba(212,175,55,0.5); }
+  .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 14px; letter-spacing: 2px; }
+  .testi-text {
+    color: rgba(245,243,231,0.85); font-size: 0.95rem; line-height: 1.7;
+    font-style: italic; margin-bottom: 20px;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;
+  }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .testi-name { color: var(--cream); font-weight: 700; font-size: 0.9rem; }
+  .testi-role { color: rgba(245,243,231,0.5); font-size: 0.75rem; }
+
+  /* ── B2B ── */
+  #b2b { background: white; }
+  .b2b-inner {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--green) 100%);
+    border-radius: 32px; padding: 60px; position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
+  }
+  .b2b-inner::before {
+    content: '🍃'; position: absolute; font-size: 200px; opacity: 0.04;
+    top: -40px; right: 80px; line-height: 1;
+  }
+  .b2b-inner .section-tag { background: rgba(212,175,55,0.2); color: var(--gold-light); border-color: rgba(212,175,55,0.3); }
+  .b2b-inner .section-h2 { color: var(--cream); }
+  .b2b-inner .section-h2 em { color: var(--gold-light); }
+  .b2b-inner .section-sub { color: rgba(245,243,231,0.75); }
+  .b2b-count {
+    text-align: center; flex-shrink: 0;
+    background: rgba(245,243,231,0.1); border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 24px; padding: 30px 36px;
+  }
+  .b2b-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .b2b-label { color: rgba(245,243,231,0.7); font-size: 0.85rem; margin-top: 6px; }
+  .btn-b2b {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold); color: var(--dark); padding: 14px 30px;
+    border-radius: 50px; font-weight: 700; font-size: 0.95rem;
+    text-decoration: none; margin-top: 24px;
+    transition: all 0.3s; box-shadow: 0 6px 20px rgba(212,175,55,0.35);
+  }
+  .btn-b2b:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,175,55,0.5); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050f08; color: rgba(245,243,231,0.7);
+    padding: 60px 5% 30px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-brand .logo-text { font-size: 1.3rem; }
+  .footer-desc { color: rgba(245,243,231,0.5); font-size: 0.85rem; line-height: 1.7; margin: 14px 0 20px; max-width: 280px; }
+  .footer-h { color: var(--cream); font-weight: 700; font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-links a { color: rgba(245,243,231,0.55); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-contact-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; margin-bottom: 10px; }
+  .footer-contact-item a { color: rgba(245,243,231,0.7); text-decoration: none; }
+  .footer-bottom { border-top: 1px solid rgba(245,243,231,0.08); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 12px; }
+  .footer-bottom-text { font-size: 0.78rem; color: rgba(245,243,231,0.35); }
+  .made-india { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: rgba(245,243,231,0.35); }
+  .trust-badges { display: flex; gap: 10px; }
+  .badge {
+    background: rgba(245,243,231,0.06); border: 1px solid rgba(245,243,231,0.12);
+    color: rgba(245,243,231,0.5); padding: 5px 12px; border-radius: 8px;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+  }
+
+  /* ── STICKY WA BUTTON ── */
+  .sticky-wa {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366; color: white;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    text-decoration: none; font-size: 1.6rem;
+    animation: pulse 2.5s infinite;
+    transition: transform 0.2s;
+  }
+  .sticky-wa:hover { transform: scale(1.1); }
+  @keyframes pulse {
+    0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.5)}
+    50%{box-shadow:0 4px 35px rgba(37,211,102,0.8), 0 0 0 10px rgba(37,211,102,0.1)}
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 12px 4%; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .hero-visual { display: none; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .weekly-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: 1fr; gap: 40px; }
+    .steps::before { display: none; }
+    .b2b-inner { grid-template-columns: 1fr; text-align: center; }
+    .b2b-count { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .sub-card { padding: 28px 20px; }
+    section { padding: 60px 4%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">🌱</div>
+    <div>
+      <div class="logo-text">Indian Microgreen</div>
+      <div class="logo-sub">Madurai · Est. 2024</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#subscription">Plans</a>
+    <a href="#why">About</a>
+    <a href="#b2b">B2B</a>
+  </div>
+  <a href="https://wa.me/916374142843?text=Hi,%20I%20want%20to%20order" class="nav-wa" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Order Now
+  </a>
+  <button class="hamburger" onclick="this.parentElement.querySelector('.nav-links').style.display='flex'">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-leaves">🌿</div>
+  <div class="hero-leaves">🍃</div>
+  <div class="hero-leaves">🌱</div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">🌿 Farm to Doorstep · Madurai</div>
+      <h1 class="hero-h1">Tiny Greens,<br><em>Big Benefits</em> 🌱</h1>
+      <p class="hero-sub">4–40x more nutritious than mature greens. Farm-fresh microgreens, flower teas & detox drinks delivered to your door in Madurai.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/916374142843?text=Hi,%20I%20want%20to%20order" class="btn-wa" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Order on WhatsApp
+        </a>
+        <a href="#subscription" class="btn-outline">View ₹1000 Plan →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">40x</div><div class="stat-label">More Nutrition</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Chemical Free</div></div>
+        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Restaurants</div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-img-container">
+        <div class="floating-badge fb1">🏆 <span>FSSAI Certified</span></div>
+        <div class="hero-main-card">
+          <div class="hero-img-placeholder">🌱</div>
+          <div class="product-tabs-mini">
+            <div class="ptab active">Microgreens</div>
+            <div class="ptab">Flower Tea</div>
+            <div class="ptab">Detox Water</div>
+            <div class="ptab">Alkaline</div>
+          </div>
+        </div>
+        <div class="floating-badge fb2">🚚 <span>Free Delivery in Madurai</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-dot">✦</span> 100% Natural & Chemical Free</div>
+  <div class="trust-item"><span class="trust-dot">✦</span> Harvested Fresh on Order</div>
+  <div class="trust-item"><span class="trust-dot">✦</span> Free Delivery in Madurai</div>
+  <div class="trust-item"><span class="trust-dot">✦</span> Supporting Local Farmers</div>
+  <div class="trust-item"><span class="trust-dot">✦</span> FSSAI Certified</div>
+</div>
+
+<!-- ── SUBSCRIPTION ── -->
+<section id="subscription">
+  <div class="sub-inner">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="section-tag" style="background:rgba(212,175,55,0.15);color:#F0D060;border-color:rgba(212,175,55,0.3)">🌟 Best Value</div>
+      <h2 class="section-h2" style="color:var(--cream)">Monthly <em style="color:var(--gold-light)">Wellness Box</em></h2>
+      <p class="section-sub" style="color:rgba(245,243,231,0.7);margin:0 auto">Your weekly dose of nature. Four different microgreen varieties delivered fresh every week.</p>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-header">
+        <div>
+          <div class="sub-title">Monthly Wellness Box</div>
+          <div class="sub-desc">100g microgreens delivered weekly × 4 times.<br>A new variety each week for complete nutrition.</div>
+        </div>
+        <div class="sub-price-badge">
+          <div class="price-amount">₹1000</div>
+          <div class="price-per">per month</div>
+        </div>
+      </div>
+
+      <div class="weekly-grid">
+        <div class="week-card">
+          <div class="week-num">Week 1</div>
+          <div class="week-emoji">🌾</div>
+          <div class="week-name">Wheat Microgreen</div>
+          <div class="week-benefit">Rich in Chlorophyll</div>
+        </div>
+        <div class="week-card">
+          <div class="week-num">Week 2</div>
+          <div class="week-emoji">🖤</div>
+          <div class="week-name">Black Channa</div>
+          <div class="week-benefit">High Protein & Fiber</div>
+        </div>
+        <div class="week-card">
+          <div class="week-num">Week 3</div>
+          <div class="week-emoji">🟣</div>
+          <div class="week-name">Beetroot</div>
+          <div class="week-benefit">Rich in Iron</div>
+        </div>
+        <div class="week-card">
+          <div class="week-num">Week 4</div>
+          <div class="week-emoji">💚</div>
+          <div class="week-name">Broccoli</div>
+          <div class="week-benefit">Powerful Antioxidant</div>
+        </div>
+      </div>
+
+      <div class="sub-benefits">
+        <div class="sub-benefit-chip">✓ Boosts Immunity</div>
+        <div class="sub-benefit-chip">✓ 100% Natural</div>
+        <div class="sub-benefit-chip">✓ Chemical Free</div>
+        <div class="sub-benefit-chip">✓ Harvested Fresh on Order</div>
+        <div class="sub-benefit-chip">✓ Free Delivery</div>
+      </div>
+
+      <a href="https://wa.me/916374142843?text=Hi,%20I%20want%20to%20start%20the%20%E2%82%B91000%20monthly%20plan" class="sub-cta" target="_blank">
+        🌱 Start My ₹1000 Plan
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS ── -->
+<section id="products">
+  <div class="text-center">
+    <div class="section-tag">🛒 Our Products</div>
+    <h2 class="section-h2">Nature's Best, <em>Four Ways</em></h2>
+    <p class="section-sub">From microgreens to flower teas — every product crafted with care, grown clean, and packed fresh.</p>
+  </div>
+
+  <div class="prod-tabs" id="prodTabs">
+    <div class="prod-tab active" onclick="showTab('microgreens',this)">🌱 Microgreens</div>
+    <div class="prod-tab" onclick="showTab('tea',this)">🌸 Flower Tea</div>
+    <div class="prod-tab" onclick="showTab('detox',this)">💧 Detox Water</div>
+    <div class="prod-tab" onclick="showTab('alkaline',this)">⚗️ Alkaline Water</div>
+  </div>
+
+  <div id="tab-microgreens" class="products-grid">
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#d4edda,#a8d5b5)">🌾</div>
+      <div class="product-body">
+        <div class="product-name">Wheat Microgreen</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Rich in Chlorophyll & Detoxifies Body</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Boosts Immunity & Energy</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Wheat%20Microgreen" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#e8f5e9,#b2dfdb)">🫛</div>
+      <div class="product-body">
+        <div class="product-name">Green Gram Microgreens</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>High in Protein & Amino Acids</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Supports Muscle Growth</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Green%20Gram%20Microgreens" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#e8e8f0,#c5c5d0)">🖤</div>
+      <div class="product-body">
+        <div class="product-name">Black Channa Microgreens</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>High in Protein & Fiber</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Supports Weight Management</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Black%20Channa%20Microgreens" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fce4ec,#f48fb1)">🟣</div>
+      <div class="product-body">
+        <div class="product-name">Beetroot Microgreen</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Rich in Iron & Improves Blood Circulation</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Detoxifies Liver</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Beetroot%20Microgreen" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9)">🥦</div>
+      <div class="product-body">
+        <div class="product-name">Broccoli Microgreens</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>High in Sulforaphane – Powerful Antioxidant</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Supports Detox & Immunity</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Broccoli%20Microgreens" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fff8e1,#ffecb3)">🌿</div>
+      <div class="product-body">
+        <div class="product-name">Chia Microgreens</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Rich in Omega-3 & High in Fiber</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Supports Heart & Skin Health</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Chia%20Microgreens" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-tea" class="products-grid" style="display:none">
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)">🌹</div>
+      <div class="product-body">
+        <div class="product-name">Rose Flower Tea</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Calming & Heart Soothing</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Rich in Antioxidants</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Rose%20Flower%20Tea" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fffde7,#fff9c4)">🌼</div>
+      <div class="product-body">
+        <div class="product-name">Chamomile Tea</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Relaxing & Sleep Support</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Caffeine Free & Soothing</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Chamomile%20Tea" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#e8eaf6,#b39ddb)">💙</div>
+      <div class="product-body">
+        <div class="product-name">Butterfly Pea Tea</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Rich in Antioxidants & Refreshing</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Natural Blue Color – No Additives</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Butterfly%20Pea%20Tea" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#ffebee,#ef9a9a)">🌺</div>
+      <div class="product-body">
+        <div class="product-name">Hibiscus Tea</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Supports Immunity & Heart Health</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Natural Detox Properties</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Hibiscus%20Tea" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fff8e1,#ffcc02,#f9a825)">🌻</div>
+      <div class="product-body">
+        <div class="product-name">Marigold Tea</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Good for Skin & Digestion</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Anti-inflammatory & Healing</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Marigold%20Tea" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-detox" class="products-grid" style="display:none">
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fff3e0,#ffcc80)">🍊🍓</div>
+      <div class="product-body">
+        <div class="product-name">Fruits with Honey Detox</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Refresh, Rejuvenate & Revitalize</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Rich in Vitamins & Antioxidants</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Fruits%20Detox%20Water" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7)">🥒🍋</div>
+      <div class="product-body">
+        <div class="product-name">Vegetables with Honey Detox</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Cleanse, Hydrate & Feel Light</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Aids Weight Management</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Vegetables%20Detox%20Water" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-alkaline" class="products-grid" style="display:none">
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2)">🍊</div>
+      <div class="product-body">
+        <div class="product-name">Citrus Bliss Alkaline</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>pH 8+ Alkaline Water</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Boosts Immunity & Natural Energy</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Citrus%20Bliss%20Alkaline%20Water" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fce4ec,#f06292)">🍓🫐</div>
+      <div class="product-body">
+        <div class="product-name">Berry Burst Alkaline</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Rich in Antioxidants</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Natural Energy Booster</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Berry%20Burst%20Alkaline%20Water" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#e0f7fa,#80deea)">🥭🍍</div>
+      <div class="product-body">
+        <div class="product-name">Tropical Mix Alkaline</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Hydrates & Detoxifies the Body</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Keeps You Refreshed All Day</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Tropical%20Mix%20Alkaline%20Water" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#e8f5e9,#66bb6a)">🌿</div>
+      <div class="product-body">
+        <div class="product-name">Minty Lime Alkaline</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Refreshing & Cooling</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Supports Digestion</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Minty%20Lime%20Alkaline%20Water" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fce4ec,#ffab91)">🍑</div>
+      <div class="product-body">
+        <div class="product-name">Peach Delight Alkaline</div>
+        <div class="product-benefits">
+          <div class="benefit-row"><div class="benefit-dot"></div>Rich in Vitamins & Minerals</div>
+          <div class="benefit-row"><div class="benefit-dot"></div>Perfect for Daily Wellness</div>
+        </div>
+        <a href="https://wa.me/916374142843?text=I%20want%20to%20order%20Peach%20Delight%20Alkaline%20Water" class="product-order-btn" target="_blank">📲 Order Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE US ── -->
+<section id="why">
+  <div class="text-center">
+    <div class="section-tag">💚 Why Choose Us</div>
+    <h2 class="section-h2">Grown with <em>Love in Madurai</em></h2>
+    <p class="section-sub">Every seed we plant, every leaf we harvest — done with care for your health and our land.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🌿</div>
+      <div class="why-title">100% Natural</div>
+      <div class="why-desc">No synthetic chemicals, pesticides, or artificial additives. Pure nutrition from seed to plate.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🚫</div>
+      <div class="why-title">No Preservatives</div>
+      <div class="why-desc">Harvested fresh on order. No shelf chemicals. What you receive is what nature intended.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🧼</div>
+      <div class="why-title">Hygienically Packed</div>
+      <div class="why-desc">Every product is carefully cleaned and packed under hygienic conditions for your safety.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🧑‍🌾</div>
+      <div class="why-title">Supporting Local Farmers</div>
+      <div class="why-desc">We partner with local Madurai farmers, building a stronger community and economy.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">❤️</div>
+      <div class="why-title">Grown with Care</div>
+      <div class="why-desc">Our microgreens are grown with natural light, water, and love — right here in Madurai.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🚚</div>
+      <div class="why-title">Free Delivery in Madurai</div>
+      <div class="why-desc">Order from anywhere in Madurai and get free home delivery. Fresh to your doorstep.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="how">
+  <div class="text-center">
+    <div class="section-tag">⚡ How It Works</div>
+    <h2 class="section-h2">Fresh in <em>3 Simple Steps</em></h2>
+    <p class="section-sub">From your order to your plate — the freshest path possible.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-circle" style="position:relative">
+        🛒
+        <div class="step-num">1</div>
+      </div>
+      <div class="step-title">Choose Your Plan</div>
+      <div class="step-desc">Pick the ₹1000 monthly subscription or order individual products via WhatsApp.</div>
+    </div>
+    <div class="step">
+      <div class="step-circle" style="position:relative">
+        🌱
+        <div class="step-num">2</div>
+      </div>
+      <div class="step-title">We Harvest Fresh</div>
+      <div class="step-desc">Your order triggers a fresh harvest. We cut and pack your greens on the same day.</div>
+    </div>
+    <div class="step">
+      <div class="step-circle" style="position:relative">
+        🚚
+        <div class="step-num">3</div>
+      </div>
+      <div class="step-title">Doorstep Delivery</div>
+      <div class="step-desc">Delivered fresh to your home in Madurai. Same-day delivery available on most orders.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="text-center">
+    <div class="section-tag" style="background:rgba(212,175,55,0.15);color:#F0D060;border-color:rgba(212,175,55,0.3)">💬 Testimonials</div>
+    <h2 class="section-h2" style="color:var(--cream)">What Our <em style="color:var(--gold-light)">Customers Say</em></h2>
+    <p class="section-sub" style="color:rgba(245,243,231,0.7);margin:0 auto">Real people, real results. Madurai loves its microgreens.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"We've been adding Indian Microgreen's wheat and broccoli greens to our salads and starters. Our customers love it, and our chefs swear by the freshness. The delivery is always on time and the quality is absolutely consistent."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👨‍🍳</div>
+        <div>
+          <div class="testi-name">Raj Kumar</div>
+          <div class="testi-role">Restaurant Owner, Madurai</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"As a fitness coach, I recommend Indian Microgreen to all my clients. The ₹1000 monthly plan is brilliant — four different varieties keep the nutrition varied and exciting. My clients have seen real improvements in energy and digestion within weeks."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">💪</div>
+        <div>
+          <div class="testi-name">Priya Sundaram</div>
+          <div class="testi-role">Fitness Coach, Madurai</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── B2B ── -->
+<section id="b2b" style="background:white">
+  <div class="b2b-inner">
+    <div>
+      <div class="section-tag">🏢 B2B / Bulk Orders</div>
+      <h2 class="section-h2">Restaurants & <em>Gyms Welcome</em></h2>
+      <p class="section-sub">Supplying to 20+ restaurants and wellness centers in Madurai. Custom quantities, consistent quality, competitive pricing for bulk orders.</p>
+      <a href="https://wa.me/916374142843?text=Hi,%20I%20want%20to%20discuss%20bulk/B2B%20order%20pricing" class="btn-b2b" target="_blank">
+        📞 Call for B2B Pricing
+      </a>
+    </div>
+    <div class="b2b-count">
+      <div class="b2b-num">20+</div>
+      <div class="b2b-label">Restaurants<br>Served in Madurai</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom:4px">
+        <div class="logo-icon">🌱</div>
+        <div>
+          <div class="logo-text">Indian Microgreen</div>
+          <div class="logo-sub" style="color:rgba(245,243,231,0.4)">Nurturing Nature, Enhancing Life</div>
+        </div>
+      </a>
+      <p class="footer-desc">Madurai's premium microgreens, flower teas, detox and alkaline water brand. 100% natural. Harvested fresh. Delivered with care.</p>
+      <div class="trust-badges">
+        <div class="badge">FSSAI</div>
+        <div class="badge">100% Natural</div>
+        <div class="badge">Made in India 🇮🇳</div>
+      </div>
+    </div>
+    <div>
+      <div class="footer-h">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#products">Our Products</a></li>
+        <li><a href="#subscription">₹1000 Monthly Plan</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#b2b">B2B / Bulk Orders</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-h">Contact Us</div>
+      <div class="footer-contact-item">📞 <a href="tel:6374142843">6374142843</a></div>
+      <div class="footer-contact-item">💬 <a href="https://wa.me/916374142843" target="_blank">WhatsApp Order</a></div>
+      <div class="footer-contact-item">📸 <a href="https://instagram.com/indianmicrogreen" target="_blank">@indianmicrogreen</a></div>
+      <div class="footer-contact-item">📧 <a href="mailto:info@indianmicrogreen.com">info@indianmicrogreen.com</a></div>
+      <div class="footer-contact-item">📍 Madurai, Tamil Nadu, India</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-text">© 2024 Indian Microgreen. All rights reserved.</div>
+    <div class="made-india">🇮🇳 Proudly Made in India &nbsp;·&nbsp; Grown in Madurai with ❤️</div>
+  </div>
+</footer>
+
+<!-- ── STICKY WA ── -->
+<a href="https://wa.me/916374142843?text=Hi,%20I%20want%20to%20order" class="sticky-wa" target="_blank" title="Order on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  function showTab(id, el) {
+    ['microgreens','tea','detox','alkaline'].forEach(t => {
+      document.getElementById('tab-'+t).style.display = 'none';
+    });
+    document.getElementById('tab-'+id).style.display = 'grid';
+    document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.why-card, .product-card, .testi-card, .week-card, .step').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
